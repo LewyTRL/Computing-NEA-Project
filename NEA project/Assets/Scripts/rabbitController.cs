@@ -40,11 +40,9 @@ public class RabbitController : MonoBehaviour
         }
 
         float moveinput = movdirection;
-        rb.linearVelocity = new UnityEngine.Vector2(moveinput * movespeed, rb.linearVelocity.y);
-
-        if (Input.GetKeyDown("space") && isgrounded)
+        if (isgrounded);
         {
-            rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpforce);
+            rb.linearVelocity = new UnityEngine.Vector2(moveinput * movespeed, 5.0f);
         }
     }
 

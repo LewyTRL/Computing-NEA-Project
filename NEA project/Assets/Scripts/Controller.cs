@@ -8,12 +8,16 @@ public class Controller : MonoBehaviour
     public float jumpforce = 10.0f;
     public Transform groundcheck;
     public float groundcheckradius = 0.2f;
+
+    public Transform ledgecheck;
+    public float ledgecheckradius = 0.2f;
     public LayerMask groundlayer;
 
 
 
     private Rigidbody2D rb;
     private bool isgrounded;
+    private bool isledgegrabbed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +34,7 @@ public class Controller : MonoBehaviour
         {
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpforce);
         }
+   
     }
 
     private void FixedUpdate()
