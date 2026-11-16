@@ -42,7 +42,7 @@ public class RabbitController : MonoBehaviour
         float moveinput = movdirection;
         if (isgrounded);
         {
-            rb.linearVelocity = new UnityEngine.Vector2(moveinput * movespeed, 5.0f);
+            rb.linearVelocity = new UnityEngine.Vector2(moveinput * movespeed, rb.linearVelocity.y);
         }
     }
 

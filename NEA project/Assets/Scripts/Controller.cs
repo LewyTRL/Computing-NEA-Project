@@ -1,5 +1,6 @@
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 public class Controller : MonoBehaviour
@@ -14,6 +15,8 @@ public class Controller : MonoBehaviour
     public LayerMask groundlayer;
 
 
+    private UIManager uimanager;
+    private int score;
 
     private Rigidbody2D rb;
     private bool isgrounded;
@@ -22,6 +25,9 @@ public class Controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        score = 0;
+        uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -33,6 +39,7 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown("space") && isgrounded)
         {
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpforce);
+            addscore(1);
         }
    
     }
@@ -40,5 +47,11 @@ public class Controller : MonoBehaviour
     private void FixedUpdate()
     {
         isgrounded = Physics2D.OverlapCircle(groundcheck.position, groundcheckradius, groundlayer);
+    }
+
+    public void addscore(int points)
+    {
+        score += points;
+        uimanager.Updatescore(score);
     }
 }

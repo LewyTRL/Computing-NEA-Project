@@ -13,4 +13,10 @@ public class Food : MonoBehaviour
     {
         
     }
+
+   //interact is called upon object interaction
+    void interact()
+    {
+        //food object will increment the "food counter" by 1 and then destroy the food item
+    }
 }
